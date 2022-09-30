@@ -15,16 +15,28 @@ namespace KolmRakendust_Tiora
         TableLayoutPanel table;
         string[] lehed = new string[4] { "+", "-", "*", "/" };
         string text;
+        Label textb;
         public Form2()
         {
             this.Text = "math Quiz";
             this.Size = new Size(600, 500);
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
-            
-            table = new TableLayoutPanel();
+
+
+            table = new TableLayoutPanel()
             {
-                AutoSize = true;
-            }
+                Location = new Point(200, 200),
+                AutoSize = true
+            };
+
+            textb = new Label()
+            {
+                Text = "Vali rakendus",
+                Location = new Point(220, 80),
+                Font = new Font("Arial", 15),
+                AutoSize = true,
+                
+            };
 
             var l_nimed = new string[5, 4];
             for (int i = 0; i < 4; i++)
@@ -46,6 +58,7 @@ namespace KolmRakendust_Tiora
             }
             
             this.Controls.Add(table);
+            this.Controls.Add(textb);
 
         }
 
