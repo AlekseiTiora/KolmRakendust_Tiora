@@ -56,13 +56,15 @@ namespace KolmRakendust_Tiora
         private void Rakendus2_Click(object sender, EventArgs e)
         {
             Form2 rakendus1 = new Form2();
-            rakendus1.ShowDialog();
+            rakendus1.Show();
+            this.Hide();
         }
 
         private void Start_Click1(object sender, EventArgs e)
         {
             Form1 rakendus1 = new Form1();
-            rakendus1.ShowDialog();
+            rakendus1.Show();
+            this.Hide();
         }
     }
 }

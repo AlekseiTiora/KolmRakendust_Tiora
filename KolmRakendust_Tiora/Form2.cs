@@ -15,27 +15,42 @@ namespace KolmRakendust_Tiora
         TableLayoutPanel table;
         string[] lehed = new string[4] { "+", "-", "*", "/" };
         string text;
-        Label textb;
+        Label textb,timelabel;
+        NumericUpDown nup;
         public Form2()
         {
             this.Text = "math Quiz";
-            this.Size = new Size(600, 500);
+            this.Size = new Size(600,500);
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
 
 
             table = new TableLayoutPanel()
             {
-                Location = new Point(200, 200),
+                Location = new Point(15, 200),
                 AutoSize = true
+            };
+
+            nup= new NumericUpDown
+            {
+            
+            
             };
 
             textb = new Label()
             {
-                Text = "Vali rakendus",
-                Location = new Point(220, 80),
+                Text = "Time Left",
+                Location = new Point(290, 10),
                 Font = new Font("Arial", 15),
                 AutoSize = true,
-                
+
+            };
+            timelabel = new Label()
+            {
+                Name="TimeLable",
+                BorderStyle= BorderStyle.FixedSingle,
+                Width=120,
+                Height=30,
+                Location = new Point(390, 10)
             };
 
             var l_nimed = new string[5, 4];
@@ -48,19 +63,36 @@ namespace KolmRakendust_Tiora
                     var l_nimi = "L" + j.ToString() + i.ToString();
                     l_nimed[j, i] = l_nimi;
                     if (j == 1) { text = lehed[i]; }//tehed = new string [4] {"+", "-", "*","/"};
+                    else if (j == 2) { text = "?"; }
                     else if (j == 3) { text = "="; }
-                    else if (j == 4) { text = "vastus"; }
-                    else { text = "?"; }//l_nimi
+                    else if ( j == 4 ) {
+                        nup = new NumericUpDown
+                        {
+                            Width = 100,
+                            Name="kapusta"
+                        };
+                        table.Controls.Add(nup);
+                        //table.SetCellPosition(nup, new TableLayoutPanelCellPosition(i - 1, j));
+                    }
+                    else
+                    {
+                        text ="?";  
+                    }
                     Label l = new Label { Text = text };
                     table.Controls.Add(l, j, i);
+
                 }
 
             }
-            
+
             this.Controls.Add(table);
             this.Controls.Add(textb);
+            this.Controls.Add(timelabel);
 
         }
 
     }
 }
+
+/*bel l = new Label { Text = text };
+table.Controls.Add(l, j, i);*/
