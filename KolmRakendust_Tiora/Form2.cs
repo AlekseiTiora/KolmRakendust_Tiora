@@ -129,7 +129,7 @@ namespace KolmRakendust_Tiora
             AlustaMangu();
             btn.Enabled = false;
         }
-
+        //
         private void Timer_Tick(object sender, EventArgs e)
         {
             NumericUpDown numeric = (NumericUpDown)table.GetControlFromPosition(4, 1);
