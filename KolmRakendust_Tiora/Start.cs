@@ -13,7 +13,6 @@ namespace KolmRakendust_Tiora
     public partial class Start : Form
     {
         Label text;
-        Button start;
         public Start()
         {
             this.Text = "Menu App";
@@ -30,8 +29,8 @@ namespace KolmRakendust_Tiora
 
             Button rakendus1 = new Button()
             {
-                Text= "picture viewer",
-                Size = new Size(120, 60),
+                Text= "Pildi vaatamise programm",
+                Size = new Size(120, 60), 
                 Location = new Point(50, 200),
                 BackColor = Color.FromArgb(0, 141, 0),
             };
@@ -39,18 +38,35 @@ namespace KolmRakendust_Tiora
 
             Button rakendus2 = new Button()
             {
-                Text = "math quiz",
+                Text = "Matemaatiline äraarvamismäng",
                 Size = new Size(120, 60),
                 Location = new Point(220, 200),
                 BackColor = Color.FromArgb(0, 141, 0),
             };
             rakendus2.Click += Rakendus2_Click;
 
+            Button rakendus3 = new Button()
+            {
+                Text = "Sarnaste piltide leidmise mäng",
+                Size = new Size(120, 60),
+                Location = new Point(400, 200),
+                BackColor = Color.FromArgb(0, 141, 0),
+            };
+            rakendus3.Click += Rakendus3_Click;
+
             this.Controls.Add(rakendus1);
             this.Controls.Add(rakendus2);
+            this.Controls.Add(rakendus3);
             this.Controls.Add(text);
 
 
+        }
+
+        private void Rakendus3_Click(object sender, EventArgs e)
+        {
+            Form3 rakendus3 = new Form3();
+            rakendus3.Show();
+            this.Hide();
         }
 
         private void Rakendus2_Click(object sender, EventArgs e)
