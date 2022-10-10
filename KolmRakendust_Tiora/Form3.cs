@@ -22,6 +22,7 @@ namespace KolmRakendust_Tiora
             "l", "l", "m", "m", ",", ",", "k", "k",
             "b", "b", "n", "n", "i", "i", "g", "g"
         };
+        //
         public Form3()
         {
             Text = "Leida sarnaseid pilte";
