@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KolmRakendust_Tiora.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace KolmRakendust_Tiora
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Start());
+            Application.Run(new Login());
         }
     }
 }

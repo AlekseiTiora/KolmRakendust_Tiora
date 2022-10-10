@@ -133,9 +133,9 @@ namespace KolmRakendust_Tiora
         private void Timer_Tick(object sender, EventArgs e)
         {
             NumericUpDown numeric = (NumericUpDown)table.GetControlFromPosition(4, 1);
-            NumericUpDown miinus = (NumericUpDown)table.GetControlFromPosition(4, 2);//минус
-            NumericUpDown korruta = (NumericUpDown)table.GetControlFromPosition(4, 3);//умножить
-            NumericUpDown jaga = (NumericUpDown)table.GetControlFromPosition(4, 4);//разделить
+            NumericUpDown miinus = (NumericUpDown)table.GetControlFromPosition(4, 2);//miinus
+            NumericUpDown korruta = (NumericUpDown)table.GetControlFromPosition(4, 3);//korrutada
+            NumericUpDown jaga = (NumericUpDown)table.GetControlFromPosition(4, 4);//jagama
             if (LabiVaatus())
             {
                 //StartTime();
@@ -150,6 +150,7 @@ namespace KolmRakendust_Tiora
             }
             else
             {
+                //kui sa ei lõpeta 30 sekundiga, siis sa kaotad
                 aeg.Stop();
                 textb.Text = "Aeg on läbi!";
                 MessageBox.Show("Te ei lõpetanud õigeks ajaks.", "Kaotus!");
