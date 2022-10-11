@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,11 @@ namespace KolmRakendust_Tiora.Properties
 {
     public partial class Login : Form
     {
+        static string conn_login = @"C:\Users\opilane\source\repos\Aleksei Tiora TARpv20\KolmRakendust_Tiora\KolmRakendust_Tiora\Login.mdf";
+
+        SqlConnection connect_login = new SqlConnection(conn_login);
+        SqlCommand command;
+        SqlDataAdapter adapter;
         public Login()
         {
             this.Text = "Menu App";
@@ -27,8 +33,8 @@ namespace KolmRakendust_Tiora.Properties
             };
             Label login1 = new Label()
             {
-                Text = "Login:",
-                Location = new Point(140, 144),
+                Text = "Kasutajanimi:",
+                Location = new Point(76, 144),
                 Font = new Font("Arial", 15),
                 AutoSize = true,
             };
@@ -78,7 +84,7 @@ namespace KolmRakendust_Tiora.Properties
             this.Controls.Add(btn_login);
             this.Controls.Add(btn_register);
         }
-
+        
         private void Btn_register_Click(object sender, EventArgs e)
         {
             register Reg = new register();
@@ -88,9 +94,7 @@ namespace KolmRakendust_Tiora.Properties
 
         private void Btn_login_Click(object sender, EventArgs e)
         {
-            Start Start = new Start();
-            Start.Show();
-            this.Hide();
+            
         }
     }
 }

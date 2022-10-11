@@ -10,8 +10,12 @@ namespace KolmRakendust_Tiora
 {
     public partial class loginpass
     {
+        /*public int Id { get; set; }
         public string Login { get; set; }
-        public string Password { get; set; }
+        public string email { get; set; }
+        public string Sugu { get; set; }
+        public int Vanus { get; set; }
+        public string Password { get; set; }*/
 
     }
 }
