@@ -18,6 +18,7 @@ namespace KolmRakendust_Tiora.Properties
         SqlConnection connect_login = new SqlConnection(conn_login);
         SqlCommand command;
         SqlDataAdapter adapter;
+        //
         public Login()
         {
             this.Text = "Menu App";
