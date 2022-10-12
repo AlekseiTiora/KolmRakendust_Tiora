@@ -13,12 +13,7 @@ namespace KolmRakendust_Tiora.Properties
 {
     public partial class Login : Form
     {
-        static string conn_login = @"C:\Users\opilane\source\repos\Aleksei Tiora TARpv20\KolmRakendust_Tiora\KolmRakendust_Tiora\Login.mdf";
-
-        SqlConnection connect_login = new SqlConnection(conn_login);
-        SqlCommand command;
-        SqlDataAdapter adapter;
-        //
+        TextBox login, pass;
         public Login()
         {
             this.Text = "Menu App";
@@ -27,8 +22,8 @@ namespace KolmRakendust_Tiora.Properties
 
             Label text = new Label()
             {
-                Text = "sisselogimine või registreerimine",
-                Location = new Point(140, 70),
+                Text = "sisselogimine",
+                Location = new Point(210, 70),
                 Font = new Font("Arial", 15),
                 AutoSize = true,
             };
@@ -46,14 +41,14 @@ namespace KolmRakendust_Tiora.Properties
                 Font = new Font("Arial", 15),
                 AutoSize = true,
             };
-            TextBox login = new TextBox()
+            login = new TextBox()
             {
                 Location = new Point(200, 140),
                 Height=100,
                 Font = new Font("Arial", 15),
                 Width =150,
             };
-            TextBox pass = new TextBox()
+            pass = new TextBox()
             {
                 Location = new Point(200, 210),
                 Height = 100,
@@ -92,10 +87,29 @@ namespace KolmRakendust_Tiora.Properties
             Reg.Show();
             this.Hide();
         }
-
-        private void Btn_login_Click(object sender, EventArgs e)
+        string loginpass = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\opilane\source\repos\Aleksei Tiora TARpv20\KolmRakendust_Tiora\KolmRakendust_Tiora\Login.mdf;Integrated Security=True";
+        private async void Btn_login_Click(object sender, EventArgs e)
         {
-            
+            SqlConnection loginandpass = new SqlConnection(loginpass);
+            int a = 0;
+            loginandpass.Open();
+            SqlCommand sqlcmd = loginandpass.CreateCommand();
+            sqlcmd.CommandText = "select * from login where kasutajanimi = '" + login.Text + "'and parool= '" + pass.Text + "'";
+            DataTable dt = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(sqlcmd);
+            sda.Fill(dt);
+            a = Convert.ToInt32(dt.Rows.Count.ToString());
+            if (a == 0)
+            {
+                MessageBox.Show("login või parool pole õige või olemas");
+            }
+            else
+            {
+                this.Hide();
+                Start start = new Start();
+                start.Show();
+            }
+            loginandpass.Close();
         }
     }
 }

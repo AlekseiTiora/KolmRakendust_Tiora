@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace KolmRakendust_Tiora
 {
     public partial class register : Form
     {
+        TextBox login, email, sugu, pass;
+        NumericUpDown vanus;
         public register()
         {
             this.Text = "Menu App";
@@ -61,21 +64,21 @@ namespace KolmRakendust_Tiora
                 AutoSize = true,
             };
 
-            TextBox login = new TextBox()
+            login = new TextBox()
             {
                 Location = new Point(200, 140),
                 Height = 100,
                 Font = new Font("Arial", 15),
                 Width = 150,
             };
-            TextBox email = new TextBox()
+            email = new TextBox()
             {
                 Location = new Point(200, 190),
                 Height = 100,
                 Font = new Font("Arial", 15),
                 Width = 150,
             };
-            TextBox sugu = new TextBox()
+            sugu = new TextBox()
             {
                 Location = new Point(200, 240),
                 Height = 100,
@@ -83,7 +86,7 @@ namespace KolmRakendust_Tiora
                 Width = 150,
             };
 
-            NumericUpDown vanus = new NumericUpDown()
+            vanus = new NumericUpDown()
             {
                 Location = new Point(200, 290),
                 Height = 100,
@@ -91,7 +94,7 @@ namespace KolmRakendust_Tiora
                 Width = 150,
             };
 
-            TextBox pass = new TextBox()
+            pass = new TextBox()
             {
                 Location = new Point(200, 340),
                 Height = 100,
@@ -107,6 +110,7 @@ namespace KolmRakendust_Tiora
                 Location = new Point(220, 400),
                 BackColor = Color.FromArgb(0, 141, 0),
             };
+            btn_register.Click += Btn_register_Click;
             Button btn_tagasi = new Button()
             {
                 Text = "Mul on kasutaja",
@@ -129,7 +133,34 @@ namespace KolmRakendust_Tiora
             this.Controls.Add(pass);
             this.Controls.Add(btn_register);
             this.Controls.Add(btn_tagasi);
+        } 
+
+        
+        private async void Btn_register_Click(object sender, EventArgs e)
+        {
+            string registr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\opilane\source\repos\Aleksei Tiora TARpv20\KolmRakendust_Tiora\KolmRakendust_Tiora\Login.mdf";
+            SqlConnection registreeti = new SqlConnection(registr);
+            int a = 0;
+            registreeti.Open();
+            if(login.Text !="" && email.Text != "" && sugu.Text != "" && vanus.Text != "" && pass.Text!= "")
+            {
+
+                SqlCommand sqlcmd = registreeti.CreateCommand();
+                sqlcmd.CommandText = "INSERT INTO login(kasutajanimi,email,sugu,vanus,parool) VALUES('" + login.Text + "','" + email.Text + "', '" + sugu.Text + "', '" + vanus.Text + "','" + pass.Text + "')";
+                DataTable dt = new DataTable();
+                SqlDataAdapter sda = new SqlDataAdapter(sqlcmd);
+                sda.Fill(dt);
+                a = Convert.ToInt32(dt.Rows.Count.ToString());
+                MessageBox.Show("konto loodud","palju õnne");
+            }
+            else
+            {
+                MessageBox.Show("Sa jätsid tühjad read");
+            }
+
+            registreeti.Close();
         }
+        
 
         private void Btn_tagasi_Click(object sender, EventArgs e)
         {

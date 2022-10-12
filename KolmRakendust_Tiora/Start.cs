@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KolmRakendust_Tiora.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,12 +55,28 @@ namespace KolmRakendust_Tiora
             };
             rakendus3.Click += Rakendus3_Click;
 
+            Button logout = new Button()
+            {
+                Text = "loogi välja",
+                Size = new Size(120, 60),
+                Location = new Point(220, 350),
+                BackColor = Color.FromArgb(0, 141, 0),
+            };
+            logout.Click += Logout_Click;
             this.Controls.Add(rakendus1);
             this.Controls.Add(rakendus2);
-            this.Controls.Add(rakendus3);
+            this.Controls.Add(rakendus3);   
+            this.Controls.Add(logout);
             this.Controls.Add(text);
 
 
+        }
+
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            Login logout = new Login();
+            logout.Show();
+            this.Hide();
         }
 
         private void Rakendus3_Click(object sender, EventArgs e)
