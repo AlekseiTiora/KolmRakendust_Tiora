@@ -17,7 +17,6 @@ namespace KolmRakendust_Tiora
         OpenFileDialog openFile = new OpenFileDialog
         {
             Filter = "JPEG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|BMP Files (*.bmp)|*.bmp|All files (*.*)|*.*",
-            Title = "Select a Picture",
         };
         ColorDialog colorDialog = new ColorDialog { };
         CheckBox box;
@@ -93,7 +92,9 @@ namespace KolmRakendust_Tiora
 
         private void Btn1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Start st = new Start();
+            st.Show();
+            this.Hide();
         }
 
         private void Box_CheckedChanged(object sender, EventArgs e)

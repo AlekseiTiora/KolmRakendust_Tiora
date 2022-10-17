@@ -24,6 +24,7 @@ namespace KolmRakendust_Tiora
             this.Text = "Math Mäng";
             this.Width = 600;
             this.Height = 500;
+            this.BackColor = Color.FromArgb(0, 141, 115);
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
             textb = new Label()
             {

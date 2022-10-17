@@ -54,6 +54,7 @@ namespace KolmRakendust_Tiora.Properties
                 Height = 100,
                 Font = new Font("Arial", 15),
                 Width = 150,
+                UseSystemPasswordChar = true
             };
             Button btn_login = new Button()
             {

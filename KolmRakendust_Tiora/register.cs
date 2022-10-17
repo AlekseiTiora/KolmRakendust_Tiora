@@ -69,21 +69,21 @@ namespace KolmRakendust_Tiora
                 Location = new Point(200, 140),
                 Height = 100,
                 Font = new Font("Arial", 15),
-                Width = 150,
+                Width = 190,
             };
             email = new TextBox()
             {
                 Location = new Point(200, 190),
                 Height = 100,
                 Font = new Font("Arial", 15),
-                Width = 150,
+                Width = 190,
             };
             sugu = new TextBox()
             {
                 Location = new Point(200, 240),
                 Height = 100,
                 Font = new Font("Arial", 15),
-                Width = 150,
+                Width = 190,
             };
 
             vanus = new NumericUpDown()
@@ -91,7 +91,7 @@ namespace KolmRakendust_Tiora
                 Location = new Point(200, 290),
                 Height = 100,
                 Font = new Font("Arial", 15),
-                Width = 150,
+                Width = 190,
             };
 
             pass = new TextBox()
@@ -99,7 +99,7 @@ namespace KolmRakendust_Tiora
                 Location = new Point(200, 340),
                 Height = 100,
                 Font = new Font("Arial", 15),
-                Width = 150,
+                Width = 190,
                 UseSystemPasswordChar = true
             };
 
@@ -152,10 +152,14 @@ namespace KolmRakendust_Tiora
                 sda.Fill(dt);
                 a = Convert.ToInt32(dt.Rows.Count.ToString());
                 MessageBox.Show("konto loodud","palju õnne");
+                Login ln = new Login();
+                ln.Show();
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("Sa jätsid tühjad read");
+
             }
 
             registreeti.Close();

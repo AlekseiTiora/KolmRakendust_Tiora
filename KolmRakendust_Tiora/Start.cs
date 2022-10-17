@@ -16,6 +16,7 @@ namespace KolmRakendust_Tiora
         Label text;
         public Start()
         {
+            
             this.Text = "Menu App";
             this.Size = new Size(600, 500);
             this.BackColor = Color.FromArgb(0, 141, 115);
@@ -27,6 +28,7 @@ namespace KolmRakendust_Tiora
                 Font = new Font("Arial", 15),
                 AutoSize = true,
             };
+
 
             Button rakendus1 = new Button()
             {
@@ -71,7 +73,6 @@ namespace KolmRakendust_Tiora
 
 
         }
-
         private void Logout_Click(object sender, EventArgs e)
         {
             Login logout = new Login();
@@ -99,5 +100,6 @@ namespace KolmRakendust_Tiora
             rakendus1.Show();
             this.Hide();
         }
+        
     }
 }
